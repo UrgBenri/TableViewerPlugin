@@ -47,7 +47,6 @@ UrgTableDrawWidget::UrgTableDrawWidget(QWidget* parent) :
 
 UrgTableDrawWidget::~UrgTableDrawWidget()
 {
-    qDebug() << "UrgTableDrawWidget::~UrgTableDrawWidget";
 }
 
 int UrgTableDrawWidget::columnCount()
@@ -58,13 +57,11 @@ int UrgTableDrawWidget::columnCount()
 
 void UrgTableDrawWidget::setMeasurementData(const PluginDataStructure &data)
 {
-    qDebug() << "UrgTableDrawWidget::setUrgItensityData";
         m_model.setTableData(data);
 }
 
 void UrgTableDrawWidget::clear()
 {
-    qDebug() << "UrgTableDrawWidget::clear";
     m_model.setTableData(PluginDataStructure());
 }
 
@@ -76,7 +73,6 @@ void UrgTableDrawWidget::setSelectedStep(int step)
 
 void UrgTableDrawWidget::copy()
 {
-    qDebug() << "UrgTableDrawWidget::copy";
     QItemSelectionModel* selection = selectionModel();
     QModelIndexList indexes = selection->selectedIndexes();
 
@@ -122,7 +118,6 @@ void UrgTableDrawWidget::copy()
 
 //void UrgTableDrawWidget::paste()
 //{
-//    qDebug() << "UrgTableDrawWidget::paste";
 //    QString selected_text = qApp->clipboard()->text();
 //    QStringList cells = selected_text.split(QRegExp(QLatin1String("\\n|\\t")));
 //    while (!cells.isEmpty() && cells.back().size() == 0) {
@@ -158,7 +153,6 @@ void UrgTableDrawWidget::copy()
 
 void UrgTableDrawWidget::keyPressEvent(QKeyEvent* event)
 {
-    qDebug() << "UrgTableDrawWidget::keyPressEvent";
     if (event->matches(QKeySequence::Copy)) {
         copy();
     }
@@ -173,7 +167,6 @@ void UrgTableDrawWidget::keyPressEvent(QKeyEvent* event)
 
 void UrgTableDrawWidget::changeEvent(QEvent* event)
 {
-    qDebug() << "UrgTableDrawWidget::changeEvent";
     QWidget::changeEvent(event);
     switch (event->type()) {
     case QEvent::LanguageChange:
